@@ -7,10 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		351908E6285AF74800E435FB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351908E5285AF74800E435FB /* Extensions.swift */; };
+		351908E8285B3B9000E435FB /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351908E7285B3B9000E435FB /* Utilities.swift */; };
+		351C631B2859C8FB00F8ECBC /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351C631A2859C8FB00F8ECBC /* MainTabController.swift */; };
+		351C631D2859CC1700F8ECBC /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351C631C2859CC1700F8ECBC /* FeedViewController.swift */; };
+		351C631F2859CC5200F8ECBC /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351C631E2859CC5200F8ECBC /* ExploreViewController.swift */; };
+		351C63232859CCC400F8ECBC /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351C63222859CCC400F8ECBC /* ConversationsViewController.swift */; };
+		351C63252859CCD200F8ECBC /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351C63242859CCD200F8ECBC /* NotificationsViewController.swift */; };
+		351C63282859EB6D00F8ECBC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 351C63272859EB6D00F8ECBC /* SnapKit */; };
+		351C632D285ADD0900F8ECBC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351C632C285ADD0900F8ECBC /* LoginViewController.swift */; };
+		351C632F285ADD2A00F8ECBC /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351C632E285ADD2A00F8ECBC /* RegistrationViewController.swift */; };
 		35FD8C102843B261000CB9E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FD8C0F2843B261000CB9E4 /* AppDelegate.swift */; };
 		35FD8C122843B261000CB9E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FD8C112843B261000CB9E4 /* SceneDelegate.swift */; };
-		35FD8C142843B261000CB9E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FD8C132843B261000CB9E4 /* ViewController.swift */; };
-		35FD8C172843B261000CB9E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35FD8C152843B261000CB9E4 /* Main.storyboard */; };
 		35FD8C192843B263000CB9E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35FD8C182843B263000CB9E4 /* Assets.xcassets */; };
 		35FD8C1C2843B263000CB9E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35FD8C1A2843B263000CB9E4 /* LaunchScreen.storyboard */; };
 		35FD8C272843B263000CB9E4 /* twitterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FD8C262843B263000CB9E4 /* twitterTests.swift */; };
@@ -36,11 +44,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		351908E5285AF74800E435FB /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		351908E7285B3B9000E435FB /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		351C631A2859C8FB00F8ECBC /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
+		351C631C2859CC1700F8ECBC /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		351C631E2859CC5200F8ECBC /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
+		351C63222859CCC400F8ECBC /* ConversationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsViewController.swift; sourceTree = "<group>"; };
+		351C63242859CCD200F8ECBC /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		351C632C285ADD0900F8ECBC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		351C632E285ADD2A00F8ECBC /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		35FD8C0C2843B261000CB9E4 /* twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35FD8C0F2843B261000CB9E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35FD8C112843B261000CB9E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		35FD8C132843B261000CB9E4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		35FD8C162843B261000CB9E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		35FD8C182843B263000CB9E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35FD8C1B2843B263000CB9E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35FD8C1D2843B263000CB9E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				351C63282859EB6D00F8ECBC /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +92,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		351C63162851C1B300F8ECBC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		351C63172851C1C300F8ECBC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		351C63182851C1C900F8ECBC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				351C632B285ADCC400F8ECBC /* Authentication */,
+				351C631A2859C8FB00F8ECBC /* MainTabController.swift */,
+				351C631C2859CC1700F8ECBC /* FeedViewController.swift */,
+				351C631E2859CC5200F8ECBC /* ExploreViewController.swift */,
+				351C63242859CCD200F8ECBC /* NotificationsViewController.swift */,
+				351C63222859CCC400F8ECBC /* ConversationsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		351C63192851C21600F8ECBC /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				351908E5285AF74800E435FB /* Extensions.swift */,
+				351908E7285B3B9000E435FB /* Utilities.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		351C632B285ADCC400F8ECBC /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				351C632C285ADD0900F8ECBC /* LoginViewController.swift */,
+				351C632E285ADD2A00F8ECBC /* RegistrationViewController.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		356C514228509B2900552F6E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		35FD8C032843B261000CB9E4 = {
 			isa = PBXGroup;
 			children = (
@@ -99,10 +167,13 @@
 		35FD8C0E2843B261000CB9E4 /* twitter */ = {
 			isa = PBXGroup;
 			children = (
+				351C63182851C1C900F8ECBC /* Controller */,
+				351C63172851C1C300F8ECBC /* Model */,
+				351C63162851C1B300F8ECBC /* ViewModel */,
+				356C514228509B2900552F6E /* View */,
+				351C63192851C21600F8ECBC /* Utils */,
 				35FD8C0F2843B261000CB9E4 /* AppDelegate.swift */,
 				35FD8C112843B261000CB9E4 /* SceneDelegate.swift */,
-				35FD8C132843B261000CB9E4 /* ViewController.swift */,
-				35FD8C152843B261000CB9E4 /* Main.storyboard */,
 				35FD8C182843B263000CB9E4 /* Assets.xcassets */,
 				35FD8C1A2843B263000CB9E4 /* LaunchScreen.storyboard */,
 				35FD8C1D2843B263000CB9E4 /* Info.plist */,
@@ -143,6 +214,9 @@
 			dependencies = (
 			);
 			name = twitter;
+			packageProductDependencies = (
+				351C63272859EB6D00F8ECBC /* SnapKit */,
+			);
 			productName = twitter;
 			productReference = 35FD8C0C2843B261000CB9E4 /* twitter.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +289,9 @@
 				Base,
 			);
 			mainGroup = 35FD8C032843B261000CB9E4;
+			packageReferences = (
+				351C63262859EB6D00F8ECBC /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 35FD8C0D2843B261000CB9E4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -233,7 +310,6 @@
 			files = (
 				35FD8C1C2843B263000CB9E4 /* LaunchScreen.storyboard in Resources */,
 				35FD8C192843B263000CB9E4 /* Assets.xcassets in Resources */,
-				35FD8C172843B261000CB9E4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,8 +334,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35FD8C142843B261000CB9E4 /* ViewController.swift in Sources */,
+				351C632D285ADD0900F8ECBC /* LoginViewController.swift in Sources */,
 				35FD8C102843B261000CB9E4 /* AppDelegate.swift in Sources */,
+				351908E8285B3B9000E435FB /* Utilities.swift in Sources */,
+				351C631B2859C8FB00F8ECBC /* MainTabController.swift in Sources */,
+				351C63232859CCC400F8ECBC /* ConversationsViewController.swift in Sources */,
+				351C632F285ADD2A00F8ECBC /* RegistrationViewController.swift in Sources */,
+				351908E6285AF74800E435FB /* Extensions.swift in Sources */,
+				351C631F2859CC5200F8ECBC /* ExploreViewController.swift in Sources */,
+				351C631D2859CC1700F8ECBC /* FeedViewController.swift in Sources */,
+				351C63252859CCD200F8ECBC /* NotificationsViewController.swift in Sources */,
 				35FD8C122843B261000CB9E4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,14 +381,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		35FD8C152843B261000CB9E4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				35FD8C162843B261000CB9E4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		35FD8C1A2843B263000CB9E4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -442,7 +518,6 @@
 				INFOPLIST_FILE = twitter/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -470,7 +545,6 @@
 				INFOPLIST_FILE = twitter/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -602,6 +676,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		351C63262859EB6D00F8ECBC /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		351C63272859EB6D00F8ECBC /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 351C63262859EB6D00F8ECBC /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 35FD8C042843B261000CB9E4 /* Project object */;
 }
