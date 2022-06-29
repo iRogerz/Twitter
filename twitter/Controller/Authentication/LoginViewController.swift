@@ -10,6 +10,7 @@ import UIKit
 class LoginViewController: UIViewController {
     
     //MARK: - properties
+    
     private let loginImageView:UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -22,7 +23,6 @@ class LoginViewController: UIViewController {
     private lazy var emailContainerView:UIView = {
         let image = UIImage(named: "ic_mail_outline_white_2x-1")
         let view = Utilities().inputContainerView(withImage: image, textField: emailTextField)
-//        view.backgroundColor = .red
         
         return view
     }()
@@ -30,7 +30,7 @@ class LoginViewController: UIViewController {
     private lazy var passwordContainerView:UIView = {
         let image = UIImage(named: "ic_lock_outline_white_2x")
         let view = Utilities().inputContainerView(withImage: image, textField: passwordTextField)
-//        view.backgroundColor = .green
+
         return view
     }()
     
@@ -56,7 +56,7 @@ class LoginViewController: UIViewController {
         return button
     }()
     
-    private let signUpButton:UIButton = {
+    private let dontHaveAccountButton:UIButton = {
         let button = Utilities().attributeButton("Don't have an account?", " Sign Up")
         button.addTarget(self, action: #selector(handleShowingSignUp), for: .touchUpInside)
         return button
@@ -70,7 +70,8 @@ class LoginViewController: UIViewController {
     }
     //MARK: - selectors
     @objc func handleShowingSignUp(){
-        
+        let controller = RegistrationViewController()
+        navigationController?.pushViewController(controller, animated: true)
     }
     @objc func handleLogin(){
         
@@ -86,19 +87,18 @@ class LoginViewController: UIViewController {
         loginImageView.snp.makeConstraints { make in
             make.centerX.equalTo(view)
             make.top.equalTo(view.safeAreaLayoutGuide)
-            make.width.height.equalTo(150)
+            make.width.height.equalTo(128)
         }
 
-        let stackView = UIStackView(arrangedSubviews: [emailContainerView, passwordContainerView, loginButton])
+        let stackView = UIStackView(arrangedSubviews: [
+            emailContainerView, passwordContainerView, loginButton
+        ])
         stackView.axis = .vertical
         stackView.spacing = 20
         stackView.distribution = .fillEqually
-
-        //        stackView.backgroundColor = .systemPink
         
         view.addSubview(stackView)
         stackView.snp.makeConstraints { make in
-            //            make.edges.equalToSuperview()
             make.leading.equalTo(view.safeAreaLayoutGuide).offset(32)
             make.centerX.equalToSuperview()
             make.top.equalTo(loginImageView.snp.bottom)
@@ -108,8 +108,8 @@ class LoginViewController: UIViewController {
             make.height.equalTo(50)
         }
         
-        view.addSubview(signUpButton)
-        signUpButton.snp.makeConstraints { make in
+        view.addSubview(dontHaveAccountButton)
+        dontHaveAccountButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
