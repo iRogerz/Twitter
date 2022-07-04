@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseStorage
 
 class RegistrationViewController: UIViewController{
 
@@ -20,7 +21,7 @@ class RegistrationViewController: UIViewController{
     
     private var pofileImage:UIImage?
     
-    private lazy var plusPhotoButton:UIButton = {
+    private let plusPhotoButton:UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "plus_photo"), for: .normal)
         button.tintColor = .white
@@ -114,24 +115,45 @@ class RegistrationViewController: UIViewController{
         guard let password = passwordTextField.text else { return }
         guard let fullName = fullNameTextField.text else { return }
         guard let userName = userNameTextField.text else { return }
-    
-        //建立帳戶
-        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
-            if let error = error{
-                print("DEBUG:error is \(error.localizedDescription)")
+        
+        guard let imageData = pofileImage?.jpegData(compressionQuality: 0.3) else { return }
+        let filename = NSUUID().uuidString
+        let storageRef = STORAGE_POFILE_IMAGE.child(filename)
+        
+        //
+        storageRef.putData(imageData, metadata: nil) { meta, error in
+            guard meta != nil  else {
+                print("meta is nil")
                 return
             }
-            
-            guard let uid = result?.user.uid else {return}
-            let values = ["email": email, "fullname": fullName, "username": userName]
-            
-            //Database.database().reference()是連到database的url,child的user是database裡自訂的子分支,uid也是一樣的道理
-            let ref = Database.database().reference().child("user").child(uid)
-            
-            ref.updateChildValues(values) { error, ref in
-                print("DEBUG:successfully updated user information")
+            storageRef.downloadURL { url, error in
+                guard let pofileImageURL = url?.absoluteString else {return}
+                
+                //建立帳戶
+                Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+                    if let error = error{
+                        print("DEBUG:error is \(error.localizedDescription)")
+                        return
+                    }
+                    
+                    guard let uid = result?.user.uid else {return}
+                    
+                    let values = ["email": email,
+                                  "fullname": fullName,
+                                  "username": userName,
+                                  "pofileImageURL": pofileImageURL]
+                    
+                    //Database.database().reference()是連到database的url,child的user是database裡自訂的子分支,uid也是一樣的道理
+        //            let ref = Database.database().reference().child("user").child(uid)
+                    
+                    REF_USERS.child(uid).updateChildValues(values) { error, ref in
+                        print("DEBUG:successfully updated user information")
+                    }
+                }
             }
         }
+        
+        
         
     }
     @objc func handleShowingLoginIn(){
