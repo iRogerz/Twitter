@@ -23,6 +23,7 @@
 		35C56E7F285EFE7900A29504 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 35C56E7E285EFE7900A29504 /* FirebaseStorage */; };
 		35D8B0B2286C02CC00D48736 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 35D8B0B1286C02CC00D48736 /* GoogleService-Info.plist */; };
 		35D8B0B6286C074100D48736 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8B0B5286C074100D48736 /* Constants.swift */; };
+		35DDA400287E846D0015A242 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DDA3FF287E846C0015A242 /* AuthService.swift */; };
 		35FD8C102843B261000CB9E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FD8C0F2843B261000CB9E4 /* AppDelegate.swift */; };
 		35FD8C122843B261000CB9E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FD8C112843B261000CB9E4 /* SceneDelegate.swift */; };
 		35FD8C192843B263000CB9E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35FD8C182843B263000CB9E4 /* Assets.xcassets */; };
@@ -62,6 +63,7 @@
 		35D8B0B1286C02CC00D48736 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		35D8B0B3286C02D500D48736 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35D8B0B5286C074100D48736 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		35DDA3FF287E846C0015A242 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		35FD8C0C2843B261000CB9E4 /* twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35FD8C0F2843B261000CB9E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35FD8C112843B261000CB9E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +159,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		35DDA3FE287E84450015A242 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				35DDA3FF287E846C0015A242 /* AuthService.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		35FD8C032843B261000CB9E4 = {
 			isa = PBXGroup;
 			children = (
@@ -180,10 +190,11 @@
 		35FD8C0E2843B261000CB9E4 /* twitter */ = {
 			isa = PBXGroup;
 			children = (
-				351C63182851C1C900F8ECBC /* Controller */,
 				351C63172851C1C300F8ECBC /* Model */,
 				351C63162851C1B300F8ECBC /* ViewModel */,
 				356C514228509B2900552F6E /* View */,
+				351C63182851C1C900F8ECBC /* Controller */,
+				35DDA3FE287E84450015A242 /* API */,
 				351C63192851C21600F8ECBC /* Utils */,
 				35FD8C0F2843B261000CB9E4 /* AppDelegate.swift */,
 				35FD8C112843B261000CB9E4 /* SceneDelegate.swift */,
@@ -361,6 +372,7 @@
 				351C631B2859C8FB00F8ECBC /* MainTabController.swift in Sources */,
 				351C63232859CCC400F8ECBC /* ConversationsViewController.swift in Sources */,
 				351C632F285ADD2A00F8ECBC /* RegistrationViewController.swift in Sources */,
+				35DDA400287E846D0015A242 /* AuthService.swift in Sources */,
 				351908E6285AF74800E435FB /* Extensions.swift in Sources */,
 				351C631F2859CC5200F8ECBC /* ExploreViewController.swift in Sources */,
 				351C631D2859CC1700F8ECBC /* FeedViewController.swift in Sources */,

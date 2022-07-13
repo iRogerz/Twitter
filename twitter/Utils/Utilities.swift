@@ -30,7 +30,7 @@ class Utilities{
         
         let divider = UIView()
         divider.backgroundColor = .white
-
+        
         view.addSubview(divider)
         divider.snp.makeConstraints { make in
             make.width.equalToSuperview()

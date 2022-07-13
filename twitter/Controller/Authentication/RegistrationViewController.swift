@@ -11,13 +11,13 @@ import FirebaseDatabase
 import FirebaseStorage
 
 class RegistrationViewController: UIViewController{
-
+    
     //MARK: - properties
-    private let imagePicker:UIImagePickerController = {
-        let imagePicker = UIImagePickerController()
-        imagePicker.allowsEditing = true
-        return imagePicker
-    }()
+    //    private let imagePicker:UIImagePickerController = {
+    //        let imagePicker = UIImagePickerController()
+    //        imagePicker.allowsEditing = true
+    //        return imagePicker
+    //    }()
     
     private var pofileImage:UIImage?
     
@@ -43,7 +43,7 @@ class RegistrationViewController: UIViewController{
     private lazy var fullNameContainerView:UIView = {
         let image = UIImage(named: "ic_person_outline_white_2x")
         let view = Utilities().inputContainerView(withImage: image, textField: fullNameTextField)
-
+        
         return view
     }()
     private lazy var userNameContainerView:UIView = {
@@ -73,6 +73,7 @@ class RegistrationViewController: UIViewController{
         let textField = Utilities().textField(placeholder: "Username")
         return textField
     }()
+    
     private let signUpButton:UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Sign up", for: .normal)
@@ -99,15 +100,22 @@ class RegistrationViewController: UIViewController{
     }
     //MARK: - delegate
     func delegate(){
-        imagePicker.delegate = self
+        //        imagePicker.delegate = self
     }
     
     //MARK: - selectors
     @objc func handlePlusPhoto(){
+        let imagePicker:UIImagePickerController = {
+            let imagePicker = UIImagePickerController()
+            imagePicker.allowsEditing = true
+            return imagePicker
+        }()
+        imagePicker.delegate = self
         present(imagePicker, animated: true)
     }
+    
     @objc func handleSignUp(){
-        guard pofileImage != nil else {
+        guard let pofileImage = pofileImage else {
             print("DEBUG: please select a photo")
             return
         }
@@ -116,45 +124,11 @@ class RegistrationViewController: UIViewController{
         guard let fullName = fullNameTextField.text else { return }
         guard let userName = userNameTextField.text else { return }
         
-        guard let imageData = pofileImage?.jpegData(compressionQuality: 0.3) else { return }
-        let filename = NSUUID().uuidString
-        let storageRef = STORAGE_POFILE_IMAGE.child(filename)
+        let credentials = AuthCredentials(email: email, password: password, fullName: fullName, userName: userName, pofileImage: pofileImage)
         
-        //
-        storageRef.putData(imageData, metadata: nil) { meta, error in
-            guard meta != nil  else {
-                print("meta is nil")
-                return
-            }
-            storageRef.downloadURL { url, error in
-                guard let pofileImageURL = url?.absoluteString else {return}
-                
-                //建立帳戶
-                Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
-                    if let error = error{
-                        print("DEBUG:error is \(error.localizedDescription)")
-                        return
-                    }
-                    
-                    guard let uid = result?.user.uid else {return}
-                    
-                    let values = ["email": email,
-                                  "fullname": fullName,
-                                  "username": userName,
-                                  "pofileImageURL": pofileImageURL]
-                    
-                    //Database.database().reference()是連到database的url,child的user是database裡自訂的子分支,uid也是一樣的道理
-        //            let ref = Database.database().reference().child("user").child(uid)
-                    
-                    REF_USERS.child(uid).updateChildValues(values) { error, ref in
-                        print("DEBUG:successfully updated user information")
-                    }
-                }
-            }
+        AuthService.shared.registerUser(credentials: credentials){ error, ref in
+            print("DRBUG: HEY!!!!")
         }
-        
-        
-        
     }
     @objc func handleShowingLoginIn(){
         navigationController?.popViewController(animated: true)
@@ -170,7 +144,7 @@ class RegistrationViewController: UIViewController{
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.width.height.equalTo(128)
         }
-
+        
         let stackView = UIStackView(arrangedSubviews: [
             emailContainerView, passwordContainerView, fullNameContainerView, userNameContainerView, signUpButton
         ])
@@ -204,8 +178,8 @@ extension RegistrationViewController:UIImagePickerControllerDelegate, UINavigati
         self.pofileImage = pofileImage
         plusPhotoButton.layer.cornerRadius = 128/2
         plusPhotoButton.layer.masksToBounds = true
-//        plusPhotoButton.imageView?.contentMode = .scaleAspectFill
-//        plusPhotoButton.imageView?.clipsToBounds = true
+        //        plusPhotoButton.imageView?.contentMode = .scaleAspectFill
+        //        plusPhotoButton.imageView?.clipsToBounds = true
         plusPhotoButton.layer.borderColor = UIColor.white.cgColor
         plusPhotoButton.layer.borderWidth = 3
         plusPhotoButton.setImage(pofileImage.withRenderingMode(.alwaysOriginal ), for: .normal)
