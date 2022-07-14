@@ -7,8 +7,6 @@
 
 import Foundation
 import Firebase
-import FirebaseDatabase
-import FirebaseStorage
 
 let STORAGE_REF = Storage.storage().reference()
 let STORAGE_POFILE_IMAGE = STORAGE_REF.child("pofile_images")
