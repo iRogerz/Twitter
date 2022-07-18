@@ -12,7 +12,7 @@ class MainTabController: UITabBarController {
 
     //MARK: - properties
     
-    let actionButton:UIButton = {
+    lazy var actionButton:UIButton = {
         let button = UIButton(type: .system)
 //        button.tintColor = .white
         button.backgroundColor = .twitterBlue
@@ -26,10 +26,15 @@ class MainTabController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .twitterBlue
+//        logUserOut()
+        fetchUser()
         authenticateUserAndConfigureUI()
         
     }
     //MARK: - API
+    func fetchUser(){
+        UserService.shared.fetchUser()
+    }
     func authenticateUserAndConfigureUI(){
         if Auth.auth().currentUser == nil{
             DispatchQueue.main.async {
@@ -38,16 +43,16 @@ class MainTabController: UITabBarController {
                 self.present(nav, animated: true)
             }
         }else{
-            print("User is login :)")
-            print(Auth.auth().currentUser)
+//            self.dismiss(animated: true)
             configureViewControllers()
             configureUI()
         }
     }
-    
+    //為了讓預設是登出狀態所以要執行一次此函式
     func logUserOut(){
         do{
             try Auth.auth().signOut()
+            print("BEDUG:Did log user out...")
         }catch let error{
             print("DEBUG: fail to signout \(error.localizedDescription)")
         }

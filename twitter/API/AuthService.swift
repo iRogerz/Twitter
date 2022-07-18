@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 
 struct AuthCredentials{
     let email:String
@@ -18,6 +19,10 @@ struct AuthCredentials{
 
 struct AuthService{
     static let shared = AuthService()
+    
+    func logUserIn(email:String, password:String, completion: ((AuthDataResult?, Error?) -> Void)?){
+        Auth.auth().signIn(withEmail: email, password: password, completion: completion)
+    }
     
     func registerUser(credentials:AuthCredentials, completion: @escaping (Error?, DatabaseReference) -> Void){
         let email = credentials.email
@@ -54,7 +59,6 @@ struct AuthService{
                     
                     //Database.database().reference()是連到database的url,child的user是database裡自訂的子分支,uid也是一樣的道理
         //            let ref = Database.database().reference().child("user").child(uid)
-                    
                     REF_USERS.child(uid).updateChildValues(values, withCompletionBlock: completion)
                 }
             }

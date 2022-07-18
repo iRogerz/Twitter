@@ -19,7 +19,7 @@ class RegistrationViewController: UIViewController{
     
     private var pofileImage:UIImage?
     
-    private let plusPhotoButton:UIButton = {
+    private lazy var plusPhotoButton:UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "plus_photo"), for: .normal)
         button.tintColor = .white
@@ -72,7 +72,7 @@ class RegistrationViewController: UIViewController{
         return textField
     }()
     
-    private let signUpButton:UIButton = {
+    private lazy var signUpButton:UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Sign up", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
@@ -83,7 +83,7 @@ class RegistrationViewController: UIViewController{
         return button
     }()
     
-    private let alreadyHaveAccountButton:UIButton = {
+    private lazy var alreadyHaveAccountButton:UIButton = {
         let button = Utilities().attributeButton("Already have an account?", " Log In")
         button.addTarget(self, action: #selector(handleShowingLoginIn), for: .touchUpInside)
         return button
@@ -125,7 +125,15 @@ class RegistrationViewController: UIViewController{
         let credentials = AuthCredentials(email: email, password: password, fullName: fullName, userName: userName, pofileImage: pofileImage)
         
         AuthService.shared.registerUser(credentials: credentials){ error, ref in
-            print("DRBUG: HEY!!!!")
+            guard let tab = self.view.window?.windowScene?.keyWindow?.rootViewController as? MainTabController else { return }
+            //跳回到rootController，但下面方法在ios15被棄用了所以使用上面的方法
+//            guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
+//            guard let tab = window.rootViewController as? MainTabController else { return }
+            
+            tab.authenticateUserAndConfigureUI()
+            
+            self.dismiss(animated: true)
+            print("DEBUG: successful signup!")
         }
     }
     @objc func handleShowingLoginIn(){

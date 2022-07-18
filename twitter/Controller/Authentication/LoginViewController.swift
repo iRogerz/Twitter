@@ -45,7 +45,7 @@ class LoginViewController: UIViewController {
         return textField
     }()
     
-    private let loginButton:UIButton = {
+    private lazy var loginButton:UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Log In", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
@@ -56,7 +56,7 @@ class LoginViewController: UIViewController {
         return button
     }()
     
-    private let dontHaveAccountButton:UIButton = {
+    private lazy var dontHaveAccountButton:UIButton = {
         let button = Utilities().attributeButton("Don't have an account?", " Sign Up")
         button.addTarget(self, action: #selector(handleShowingSignUp), for: .touchUpInside)
         return button
@@ -74,7 +74,25 @@ class LoginViewController: UIViewController {
         navigationController?.pushViewController(controller, animated: true)
     }
     @objc func handleLogin(){
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
         
+        AuthService.shared.logUserIn(email: email, password: password){ (result, error) in
+            if let error = error{
+                print("DEBUG: error log in \(error.localizedDescription)")
+                return
+            }
+            
+            guard let tab = self.view.window?.windowScene?.keyWindow?.rootViewController as? MainTabController else { return }
+            //跳回到rootController，但下面方法在ios15被棄用了所以使用上面的方法
+//            guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
+//            guard let tab = window.rootViewController as? MainTabController else { return }
+            
+            tab.authenticateUserAndConfigureUI()
+            
+            self.dismiss(animated: true)
+            print("DEBUG: successful login")
+        }
     }
     
     //MARK: - Helpers
