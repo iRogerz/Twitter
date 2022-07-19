@@ -11,6 +11,7 @@ target 'twitter' do
 	pod 'Firebase/Storage'
 	pod 'Firebase/Auth'
 	pod 'SnapKit', '~>5.6.0'
+	pod 'SDWebImage', '~> 5.0'
 
   target 'twitterTests' do
     inherit! :search_paths
