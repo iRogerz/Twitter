@@ -21,7 +21,7 @@ class MainTabController: UITabBarController {
     
     lazy var actionButton:UIButton = {
         let button = UIButton(type: .system)
-//        button.tintColor = .white
+        button.tintColor = .white
         button.backgroundColor = .twitterBlue
         button.setImage(UIImage(named: "new_tweet"), for: .normal)
         button.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
@@ -68,7 +68,9 @@ class MainTabController: UITabBarController {
     }
     //MARK: - selectors
     @objc func actionButtonTapped(){
-        
+       let nav = UINavigationController(rootViewController: UploadTweetController())
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: true)
     }
     
     func configureUI(){
@@ -77,7 +79,6 @@ class MainTabController: UITabBarController {
         UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance()
         
         view.addSubview(actionButton)
-        
         actionButton.snp.makeConstraints { make in
             make.trailing.equalTo(view.safeAreaLayoutGuide).offset(-16)
             make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-64)
