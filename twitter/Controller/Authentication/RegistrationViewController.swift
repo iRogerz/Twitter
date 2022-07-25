@@ -11,6 +11,7 @@ import Firebase
 class RegistrationViewController: UIViewController{
     
     //MARK: - properties
+    //目前我把imagePicker寫到button裡面了
     //    private let imagePicker:UIImagePickerController = {
     //        let imagePicker = UIImagePickerController()
     //        imagePicker.allowsEditing = true
@@ -98,7 +99,7 @@ class RegistrationViewController: UIViewController{
     }
     //MARK: - delegate
     func delegate(){
-        //        imagePicker.delegate = self
+//        imagePicker.delegate = self
     }
     
     //MARK: - selectors
@@ -126,9 +127,10 @@ class RegistrationViewController: UIViewController{
         
         AuthService.shared.registerUser(credentials: credentials){ error, ref in
             guard let tab = self.view.window?.windowScene?.keyWindow?.rootViewController as? MainTabController else { return }
+            
             //跳回到rootController，但下面方法在ios15被棄用了所以使用上面的方法
-//            guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
-//            guard let tab = window.rootViewController as? MainTabController else { return }
+            //            guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
+            //            guard let tab = window.rootViewController as? MainTabController else { return }
             
             tab.authenticateUserAndConfigureUI()
             

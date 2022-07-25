@@ -5,7 +5,6 @@
 //  Created by 曾子庭 on 2022/7/15.
 //
 
-import Foundation
 import Firebase
 import FirebaseAuth
 

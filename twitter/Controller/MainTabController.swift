@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 
 class MainTabController: UITabBarController {
-
+    
     var user: User?{
         didSet{
             guard let nav = viewControllers?[0] as? UINavigationController else { return }
@@ -33,7 +33,7 @@ class MainTabController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .twitterBlue
-//        logUserOut()
+//                logUserOut()
         fetchUser()
         authenticateUserAndConfigureUI()
         
@@ -52,7 +52,7 @@ class MainTabController: UITabBarController {
                 self.present(nav, animated: true)
             }
         }else{
-//            self.dismiss(animated: true)
+            //            self.dismiss(animated: true)
             configureViewControllers()
             configureUI()
         }
@@ -68,7 +68,9 @@ class MainTabController: UITabBarController {
     }
     //MARK: - selectors
     @objc func actionButtonTapped(){
-       let nav = UINavigationController(rootViewController: UploadTweetController())
+        guard let user = user else { return }
+        let controller = UploadTweetController(user: user)
+        let nav = UINavigationController(rootViewController: controller)
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: true)
     }
@@ -102,7 +104,7 @@ class MainTabController: UITabBarController {
         let conversationNav = templateNavigationController(image: UIImage(named: "ic_mail_outline_white_2x-1"), rootController: conversation)
         
         self.tabBar.barTintColor = .clear
-//        self.tabBar.tintColor = .orange
+        //        self.tabBar.tintColor = .orange
         viewControllers = [feedNav, exploreNav, notificationNav, conversationNav]
         
     }
@@ -114,5 +116,5 @@ class MainTabController: UITabBarController {
         
         return nav
     }
-
+    
 }
