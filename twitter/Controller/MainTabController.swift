@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 
 class MainTabController: UITabBarController {
     
@@ -40,7 +41,8 @@ class MainTabController: UITabBarController {
     }
     //MARK: - API
     func fetchUser(){
-        UserService.shared.fetchUser { user in
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        UserService.shared.fetchUser(uid: uid) { user in
             self.user = user
         }
     }
@@ -91,7 +93,8 @@ class MainTabController: UITabBarController {
     //MARK: - Helpers
     
     func configureViewControllers(){
-        let feed = FeedViewController()
+        let feed = FeedViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        
         let feedNav = templateNavigationController(image: UIImage(named: "home_unselected"), rootController: feed)
         
         let explore = ExploreViewController()

@@ -7,14 +7,17 @@
 
 import Firebase
 import FirebaseAuth
+import FirebaseDatabase
 
 struct UserService{
     static let shared = UserService()
     
-    func fetchUser(complition: @escaping(User) -> Void){
-        guard let uid = Auth.auth().currentUser?.uid else { return }
+    func fetchUser(uid: String, complition: @escaping(User) -> Void){
+//        guard let uid = Auth.auth().currentUser?.uid else { return }
         
-        REF_USERS.child(uid).observe(.value) { snapshot in
+        //observe用來監聽每次
+        
+        REF_USERS.child(uid).observeSingleEvent(of: .value) { snapshot in
             guard let dictionary = snapshot.value as? [String:AnyObject] else { return }
 //            print("DEBUG: dictionary is \(dictionary)")
             

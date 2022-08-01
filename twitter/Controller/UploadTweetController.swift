@@ -91,8 +91,8 @@ class UploadTweetController: UIViewController{
             make.height.equalTo(300)
         }
         
-        guard let url = URL(string: user.pofileImageURL) else { return }
-        pofileImageView.sd_setImage(with: url)
+//        guard let url = URL(string: user.pofileImageURL) else { return }
+        pofileImageView.sd_setImage(with: user.pofileImageURL)
     }
     
     func configureNavigationBar(){

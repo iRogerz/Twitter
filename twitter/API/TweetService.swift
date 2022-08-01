@@ -25,4 +25,24 @@ struct TweetService{
         //childByAutoId是用來生成uid的
         REF_TWEETS.childByAutoId().updateChildValues(values, withCompletionBlock: completion)
     }
+    
+    func fetchTweets(completion:@escaping([Tweet])-> Void){
+       var tweets = [Tweet]()
+        
+        //.childadded 每次只要有新的子節點新增，就拿取裡面的資訊
+        REF_TWEETS.observe(.childAdded) { snapshot in
+//            print("DEBUG: snapshot is \(snapshot.value)")
+            guard let dictionary = snapshot.value as? [String: Any] else { return }
+            guard let uid = dictionary["uid"] as? String else { return }
+            
+            let tweetID = snapshot.key
+            
+            UserService.shared.fetchUser(uid: uid) { user in
+                let tweet = Tweet(user:user, tweetID: tweetID, dictionary: dictionary)
+                tweets.append(tweet)
+                completion(tweets)
+            }
+            
+        }
+    }
 }
