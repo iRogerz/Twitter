@@ -88,8 +88,10 @@ extension FeedViewController: UICollectionViewDelegateFlowLayout{
  
 //MARK: - TweetCellDelegate
 extension FeedViewController:TweetCellDelegate{
-    func handlePofileImageTapped() {
-        let controller = PofileController(collectionViewLayout: UICollectionViewFlowLayout())
+    func handlePofileImageTapped(_ cell: TweetCell) {
+        guard let user = cell.tweet?.user else { return }
+        let controller = PofileController(user: user)
         navigationController?.pushViewController(controller, animated: true)
     }
+
 }

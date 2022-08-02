@@ -12,7 +12,7 @@ struct Tweet{
     let tweetID: String
     let uid: String
     let likes: Int
-    var timestamp: Date
+    var timestamp: Date!
     let retreet: Int
     let user: User
     

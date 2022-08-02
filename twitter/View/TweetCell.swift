@@ -118,7 +118,7 @@ class TweetCell: UICollectionViewCell {
     @objc func handlePofileImageTap(){
         //不能在cell事件push新的viewcontroller,要記得在cell的父controller上才能push！！
         //所以使用delegate傳給viewcontroller是個好方法
-        delegate?.handlePofileImageTapped()
+        delegate?.handlePofileImageTapped(self)
     }
     @objc func handleCommentTapped(){
         print("asdf")
@@ -150,5 +150,5 @@ class TweetCell: UICollectionViewCell {
 }
 
 protocol TweetCellDelegate: AnyObject {
-    func handlePofileImageTapped()
+    func handlePofileImageTapped(_ cell: TweetCell)
 }

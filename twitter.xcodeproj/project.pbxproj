@@ -24,6 +24,10 @@
 		3555A441288B0E2700CB2EDD /* TweetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3555A440288B0E2700CB2EDD /* TweetService.swift */; };
 		3555A443288E7AC700CB2EDD /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3555A442288E7AC700CB2EDD /* Tweet.swift */; };
 		3555A447288EA24300CB2EDD /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3555A446288EA24300CB2EDD /* TweetCell.swift */; };
+		35B6B1DD2897A46D005DD98E /* PofileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B6B1DC2897A46D005DD98E /* PofileHeader.swift */; };
+		35B6B1DF2897CA84005DD98E /* PofileFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B6B1DE2897CA84005DD98E /* PofileFilterView.swift */; };
+		35B6B1E12897D82C005DD98E /* PofileFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B6B1E02897D82C005DD98E /* PofileFilterCell.swift */; };
+		35D4811228983F8B0008E205 /* PofileHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D4811128983F8B0008E205 /* PofileHeaderViewModel.swift */; };
 		35D8B0B2286C02CC00D48736 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 35D8B0B1286C02CC00D48736 /* GoogleService-Info.plist */; };
 		35D8B0B6286C074100D48736 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8B0B5286C074100D48736 /* Constants.swift */; };
 		35D9F35328963C39007C88C6 /* TweetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D9F35228963C39007C88C6 /* TweetViewModel.swift */; };
@@ -76,6 +80,10 @@
 		3555A440288B0E2700CB2EDD /* TweetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetService.swift; sourceTree = "<group>"; };
 		3555A442288E7AC700CB2EDD /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		3555A446288EA24300CB2EDD /* TweetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
+		35B6B1DC2897A46D005DD98E /* PofileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PofileHeader.swift; sourceTree = "<group>"; };
+		35B6B1DE2897CA84005DD98E /* PofileFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PofileFilterView.swift; sourceTree = "<group>"; };
+		35B6B1E02897D82C005DD98E /* PofileFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PofileFilterCell.swift; sourceTree = "<group>"; };
+		35D4811128983F8B0008E205 /* PofileHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PofileHeaderViewModel.swift; sourceTree = "<group>"; };
 		35D8B0B1286C02CC00D48736 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		35D8B0B3286C02D500D48736 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35D8B0B5286C074100D48736 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -133,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				35D9F35228963C39007C88C6 /* TweetViewModel.swift */,
+				35D4811128983F8B0008E205 /* PofileHeaderViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -185,6 +194,9 @@
 			children = (
 				3542098528881FF900210AE5 /* CaptionTextView.swift */,
 				3555A446288EA24300CB2EDD /* TweetCell.swift */,
+				35B6B1DC2897A46D005DD98E /* PofileHeader.swift */,
+				35B6B1DE2897CA84005DD98E /* PofileFilterView.swift */,
+				35B6B1E02897D82C005DD98E /* PofileFilterCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -524,6 +536,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3535CFDC288087C70087EEEA /* UserService.swift in Sources */,
+				35B6B1DF2897CA84005DD98E /* PofileFilterView.swift in Sources */,
 				351C632D285ADD0900F8ECBC /* LoginViewController.swift in Sources */,
 				3542098628881FF900210AE5 /* CaptionTextView.swift in Sources */,
 				35FD8C102843B261000CB9E4 /* AppDelegate.swift in Sources */,
@@ -533,15 +546,18 @@
 				3555A447288EA24300CB2EDD /* TweetCell.swift in Sources */,
 				351C632F285ADD2A00F8ECBC /* RegistrationViewController.swift in Sources */,
 				35DDA400287E846D0015A242 /* AuthService.swift in Sources */,
+				35D4811228983F8B0008E205 /* PofileHeaderViewModel.swift in Sources */,
 				3535CFE02886A9980087EEEA /* UploadTweetController.swift in Sources */,
 				3535CFDE28814B380087EEEA /* User.swift in Sources */,
 				351908E6285AF74800E435FB /* Extensions.swift in Sources */,
 				351C631F2859CC5200F8ECBC /* ExploreViewController.swift in Sources */,
 				351C631D2859CC1700F8ECBC /* FeedViewController.swift in Sources */,
 				35D9F35328963C39007C88C6 /* TweetViewModel.swift in Sources */,
+				35B6B1DD2897A46D005DD98E /* PofileHeader.swift in Sources */,
 				35D9F35528978323007C88C6 /* PofileController.swift in Sources */,
 				351C63252859CCD200F8ECBC /* NotificationsViewController.swift in Sources */,
 				35FD8C122843B261000CB9E4 /* SceneDelegate.swift in Sources */,
+				35B6B1E12897D82C005DD98E /* PofileFilterCell.swift in Sources */,
 				35D8B0B6286C074100D48736 /* Constants.swift in Sources */,
 				3555A443288E7AC700CB2EDD /* Tweet.swift in Sources */,
 				3555A441288B0E2700CB2EDD /* TweetService.swift in Sources */,

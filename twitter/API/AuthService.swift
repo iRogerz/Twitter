@@ -43,6 +43,7 @@ struct AuthService{
             }
             storageRef.downloadURL { url, error in
                 guard let pofileImageURL = url?.absoluteString else {return}
+                print("asdf")
                 
                 //建立帳戶
                 Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
