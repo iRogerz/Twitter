@@ -36,6 +36,13 @@ class FeedViewController: UICollectionViewController {
         collectionView.delaysContentTouches = false
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.overrideUserInterfaceStyle = .light
+        setNeedsStatusBarAppearanceUpdate()
+        navigationController?.navigationBar.isHidden = false
+    }
+    
     //MARK: - API
     func fetchTweet(){
         TweetService.shared.fetchTweets { tweets in

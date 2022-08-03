@@ -22,8 +22,14 @@ struct TweetService{
                       "retreet": 0,
                       "caption": caption] as [String: Any]
         
+//        let ref = REF_TWEETS.childByAutoId()
+        
         //childByAutoId是用來生成uid的
-        REF_TWEETS.childByAutoId().updateChildValues(values, withCompletionBlock: completion)
+        REF_TWEETS.childByAutoId().updateChildValues(values) { error, ref in
+            //update user-tweets after tweet upload complete
+            guard let tweetID = ref.key else { return }
+            REF_USER_TWEETS.child(uid).updateChildValues([tweetID: 1], withCompletionBlock: completion)
+        }
     }
     
     func fetchTweets(completion:@escaping([Tweet])-> Void){

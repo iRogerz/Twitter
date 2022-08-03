@@ -94,7 +94,7 @@ class TweetCell: UICollectionViewCell {
         }
         
         infoLabel.font = UIFont.systemFont(ofSize: 14)
-        infoLabel.text = "roger @iRogerz"
+//        infoLabel.text = "roger @iRogerz"
         
         let actionStack = UIStackView(arrangedSubviews: [commentButton, retweetButton, likeButton, shareButton])
         actionStack.spacing = 72

@@ -16,3 +16,4 @@ let REF_USERS = DB_REF.child("user")
 //let REF_USER = Database.database().reference(withPath: "user")
 let REF_TWEETS = DB_REF.child("tweets")
 
+let REF_USER_TWEETS = DB_REF.child("user-tweets")

@@ -8,13 +8,16 @@
 import UIKit
 import SnapKit
 
+protocol PofileHeaderDelegate: AnyObject{
+    func handleDismissal()
+}
 class PofileHeader: UICollectionReusableView {
         
     //MARK: - properties
     var user: User?{
         didSet{ configureUI() }
     }
-    
+    weak var delegate: PofileHeaderDelegate?
     
     private lazy var containerView: UIView = {
         let view = UIView()
@@ -171,7 +174,7 @@ class PofileHeader: UICollectionReusableView {
     
     //MARK: - selectors
     @objc func handleDismiss(){
-        
+        delegate?.handleDismissal()
     }
     @objc func handleEditPofileFollow(){
         

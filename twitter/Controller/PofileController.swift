@@ -35,6 +35,7 @@ class PofileController: UICollectionViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+//        navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.overrideUserInterfaceStyle = .dark
         setNeedsStatusBarAppearanceUpdate()
         navigationController?.navigationBar.isHidden = true
@@ -100,6 +101,7 @@ extension PofileController {
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath) as! PofileHeader
         header.user = user
+        header.delegate = self
         return header
     }
 }
@@ -113,4 +115,12 @@ extension PofileController: UICollectionViewDelegateFlowLayout{
         return CGSize(width: view.frame.width, height: 120)
     }
 
+}
+
+//MARK: - PofileHeaderDelegate
+extension PofileController: PofileHeaderDelegate{
+    func handleDismissal() {
+        navigationController?.popViewController(animated: true)
+    }
+        
 }
