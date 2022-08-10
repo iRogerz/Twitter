@@ -46,7 +46,7 @@ class FeedViewController: UICollectionViewController {
     //MARK: - API
     func fetchTweet(){
         TweetService.shared.fetchTweets { tweets in
-            print("DEBUG: tweets are \(tweets.count)")
+//            print("DEBUG: tweets are \(tweets.count)")
             self.tweets = tweets
         }
     }

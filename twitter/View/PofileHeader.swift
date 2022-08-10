@@ -63,7 +63,6 @@ class PofileHeader: UICollectionReusableView {
     private let fullnameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 20)
-        label.text = "roger Tseng"
         return label
     }()
     
@@ -71,7 +70,6 @@ class PofileHeader: UICollectionReusableView {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = .lightGray
-        label.text = "@iRogerz"
         return label
     }()
     
@@ -196,6 +194,9 @@ class PofileHeader: UICollectionReusableView {
         editPofileButton.setTitle(viewModel.actionButtonTitle, for: .normal)
         followingLabel.attributedText = viewModel.followeringString
         followersLabel.attributedText = viewModel.followersString
+        
+        fullnameLabel.text = user.fullname
+        usernameLabel.text = viewModel.usernameText
     }
     
 }

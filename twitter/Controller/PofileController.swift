@@ -16,6 +16,10 @@ class PofileController: UICollectionViewController {
     private let user: User
     
     
+    private var tweets = [Tweet](){
+        didSet{ collectionView.reloadData() }
+    }
+    
     
     //MARK: - Lifecycle
     init(user: User){
@@ -30,7 +34,7 @@ class PofileController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
-
+        fetchTweets() 
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,6 +43,12 @@ class PofileController: UICollectionViewController {
         navigationController?.navigationBar.overrideUserInterfaceStyle = .dark
         setNeedsStatusBarAppearanceUpdate()
         navigationController?.navigationBar.isHidden = true
+    }
+    //MARK: - API
+    func fetchTweets(){
+        TweetService.shared.fetchTweets(forUser: user) { tweets in
+            self.tweets = tweets
+        }
     }
     
     //MARK: - Helpers
@@ -54,47 +64,18 @@ class PofileController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 3
+        return tweets.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! TweetCell
      
-        // Configure the cell
+        cell.tweet = tweets[indexPath.row]
     
         return cell
     }
 
-    // MARK: UICollectionViewDelegate
 
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
 }
 extension PofileController {
     //建立pofileHeader

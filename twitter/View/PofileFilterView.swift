@@ -77,12 +77,14 @@ extension PofileFilterView: UICollectionViewDataSource{
 
 //MARK: - UICollectionViewDelegate
 extension PofileFilterView: UICollectionViewDelegate{
-    //用來傳值回去pofileheader來操控underline的移動
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //用來傳值回去pofileheader來操控underline的移動
         //        delegate?.filterView(self, didSelect: indexPath)
         guard let cell = collectionView.cellForItem(at: indexPath) as? PofileFilterCell else { return }
+        
         let xPosition = cell.frame.origin.x
-        UIView.animate(withDuration: 0.3) {
+        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0) {
             self.underLineView.frame.origin.x = xPosition
         }
         
@@ -91,7 +93,6 @@ extension PofileFilterView: UICollectionViewDelegate{
 
 //MARK: - UICollectionViewDelegateFlowLayout
 extension PofileFilterView: UICollectionViewDelegateFlowLayout{
-    
     //每個cell的大小
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let count = CGFloat(PofileFilterOptions.allCases.count)

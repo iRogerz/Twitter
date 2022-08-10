@@ -87,7 +87,6 @@ class LoginViewController: UIViewController {
             //跳回到rootController，但下面方法在ios15被棄用了所以使用上面的方法
 //            guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
 //            guard let tab = window.rootViewController as? MainTabController else { return }
-            
             tab.authenticateUserAndConfigureUI()
             
             self.dismiss(animated: true)

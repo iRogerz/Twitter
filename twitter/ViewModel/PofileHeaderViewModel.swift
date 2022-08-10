@@ -25,6 +25,8 @@ enum PofileFilterOptions: Int, CaseIterable {
 struct PofileHeaderViewModel {
     private let user: User
     
+    var usernameText: String
+    
     var followersString: NSAttributedString{
         return attributedText(value: 0, text: "Followers")
     }
@@ -52,5 +54,6 @@ struct PofileHeaderViewModel {
     
     init(user: User){
         self.user = user
+        self.usernameText = "@" + user.username
     }
 }
