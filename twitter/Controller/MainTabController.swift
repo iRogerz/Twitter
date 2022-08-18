@@ -54,7 +54,6 @@ class MainTabController: UITabBarController {
                 self.present(nav, animated: true)
             }
         }else{
-            //            self.dismiss(animated: true)
             configureViewControllers()
             configureUI()
         }

@@ -32,6 +32,7 @@ class PofileHeader: UICollectionReusableView {
     
     private lazy var backButton: UIButton = {
         let button = UIButton(type: .system)
+        //withRenderingMode強制顯示原本的色彩
         button.setImage(UIImage(named: "baseline_arrow_back_white_24dp")?.withRenderingMode(.alwaysOriginal), for: .normal)
         button.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
         return button
