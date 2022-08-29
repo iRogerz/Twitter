@@ -24,6 +24,7 @@
 		3555A441288B0E2700CB2EDD /* TweetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3555A440288B0E2700CB2EDD /* TweetService.swift */; };
 		3555A443288E7AC700CB2EDD /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3555A442288E7AC700CB2EDD /* Tweet.swift */; };
 		3555A447288EA24300CB2EDD /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3555A446288EA24300CB2EDD /* TweetCell.swift */; };
+		3589A7BC28B6129500D37DBB /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3589A7BB28B6129400D37DBB /* UserCell.swift */; };
 		35B6B1DD2897A46D005DD98E /* PofileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B6B1DC2897A46D005DD98E /* PofileHeader.swift */; };
 		35B6B1DF2897CA84005DD98E /* PofileFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B6B1DE2897CA84005DD98E /* PofileFilterView.swift */; };
 		35B6B1E12897D82C005DD98E /* PofileFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B6B1E02897D82C005DD98E /* PofileFilterCell.swift */; };
@@ -80,6 +81,7 @@
 		3555A440288B0E2700CB2EDD /* TweetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetService.swift; sourceTree = "<group>"; };
 		3555A442288E7AC700CB2EDD /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		3555A446288EA24300CB2EDD /* TweetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
+		3589A7BB28B6129400D37DBB /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		35B6B1DC2897A46D005DD98E /* PofileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PofileHeader.swift; sourceTree = "<group>"; };
 		35B6B1DE2897CA84005DD98E /* PofileFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PofileFilterView.swift; sourceTree = "<group>"; };
 		35B6B1E02897D82C005DD98E /* PofileFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PofileFilterCell.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				35B6B1DC2897A46D005DD98E /* PofileHeader.swift */,
 				35B6B1DE2897CA84005DD98E /* PofileFilterView.swift */,
 				35B6B1E02897D82C005DD98E /* PofileFilterCell.swift */,
+				3589A7BB28B6129400D37DBB /* UserCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 				351C632D285ADD0900F8ECBC /* LoginViewController.swift in Sources */,
 				3542098628881FF900210AE5 /* CaptionTextView.swift in Sources */,
 				35FD8C102843B261000CB9E4 /* AppDelegate.swift in Sources */,
+				3589A7BC28B6129500D37DBB /* UserCell.swift in Sources */,
 				351908E8285B3B9000E435FB /* Utilities.swift in Sources */,
 				351C631B2859C8FB00F8ECBC /* MainTabController.swift in Sources */,
 				351C63232859CCC400F8ECBC /* ConversationsViewController.swift in Sources */,
