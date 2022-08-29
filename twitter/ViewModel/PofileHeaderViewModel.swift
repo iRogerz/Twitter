@@ -39,9 +39,14 @@ struct PofileHeaderViewModel {
         //else figure out following/not gollowing
         if user.isCurrentUser {
             return "Edit Pofile"
-        }else{
+        }
+        if !user.isFollowed && !user.isCurrentUser {
             return "Follow"
         }
+        if user.isFollowed{
+            return "Following"
+        }
+        return "Loading"
     }
     
     //存取權限但我還沒研究

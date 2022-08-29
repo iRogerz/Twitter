@@ -13,7 +13,7 @@ private let headerIdentifier = "PofileHeader"
 class PofileController: UICollectionViewController {
 
     //MARK: - properties
-    private let user: User
+    private var user: User
     
     
     private var tweets = [Tweet](){
@@ -34,7 +34,8 @@ class PofileController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
-        fetchTweets() 
+        fetchTweets()
+        checkIfUserIsFollowed()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,6 +49,13 @@ class PofileController: UICollectionViewController {
     func fetchTweets(){
         TweetService.shared.fetchTweets(forUser: user) { tweets in
             self.tweets = tweets
+        }
+    }
+    
+    func checkIfUserIsFollowed(){
+        UserService.shared.checkIfUserIsFollowed(uid: user.uid) { isFollowed in
+            self.user.isFollowed = isFollowed
+            self.collectionView.reloadData()
         }
     }
     
@@ -71,7 +79,6 @@ class PofileController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! TweetCell
      
         cell.tweet = tweets[indexPath.row]
-    
         return cell
     }
 
@@ -100,6 +107,26 @@ extension PofileController: UICollectionViewDelegateFlowLayout{
 
 //MARK: - PofileHeaderDelegate
 extension PofileController: PofileHeaderDelegate{
+    func handleEditPofileFollow(_ header: PofileHeader) {
+        
+        if user.isCurrentUser{ return }
+        
+        if user.isFollowed{
+            UserService.shared.unfollowUser(uid: user.uid) { err, ref in
+                print(self.user.isFollowed)
+                self.user.isFollowed = false
+                header.editPofileButton.setTitle("Follow", for: .normal)
+            }
+        }else{
+            UserService.shared.followUser(uid: user.uid) { err, ref in
+                print(self.user.isFollowed)
+                self.user.isFollowed = true
+                header.editPofileButton.setTitle("Following", for: .normal)
+            }
+        }
+     
+    }
+    
     func handleDismissal() {
         navigationController?.popViewController(animated: true)
     }

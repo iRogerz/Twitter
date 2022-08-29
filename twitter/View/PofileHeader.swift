@@ -10,6 +10,7 @@ import SnapKit
 
 protocol PofileHeaderDelegate: AnyObject{
     func handleDismissal()
+    func handleEditPofileFollow(_ header: PofileHeader)
 }
 class PofileHeader: UICollectionReusableView {
         
@@ -49,7 +50,7 @@ class PofileHeader: UICollectionReusableView {
         imageView.layer.borderColor = UIColor.white.cgColor
         return imageView
     }()
-    private lazy var editPofileButton: UIButton = {
+    lazy var editPofileButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Loading", for: .normal)
         button.setTitleColor(UIColor.twitterBlue, for: .normal)
@@ -176,7 +177,7 @@ class PofileHeader: UICollectionReusableView {
         delegate?.handleDismissal()
     }
     @objc func handleEditPofileFollow(){
-        
+        delegate?.handleEditPofileFollow(self)
     }
     @objc func handleFollowingTap(){
         
