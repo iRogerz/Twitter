@@ -28,10 +28,10 @@ struct PofileHeaderViewModel {
     var usernameText: String
     
     var followersString: NSAttributedString{
-        return attributedText(value: 0, text: "Followers")
+        return attributedText(value: user.stats?.followers ?? 0, text: "Followers")
     }
     var followeringString: NSAttributedString{
-        return attributedText(value: 2, text: "Following")
+        return attributedText(value: user.stats?.following ?? 0, text: "Following")
     }
     
     var actionButtonTitle: String{
