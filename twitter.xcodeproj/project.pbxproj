@@ -31,6 +31,8 @@
 		35D4811228983F8B0008E205 /* PofileHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D4811128983F8B0008E205 /* PofileHeaderViewModel.swift */; };
 		35D8B0B2286C02CC00D48736 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 35D8B0B1286C02CC00D48736 /* GoogleService-Info.plist */; };
 		35D8B0B6286C074100D48736 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8B0B5286C074100D48736 /* Constants.swift */; };
+		35D9109628BF4B93002D0694 /* TweetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D9109528BF4B93002D0694 /* TweetController.swift */; };
+		35D9109828BF5825002D0694 /* TweetHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D9109728BF5825002D0694 /* TweetHeader.swift */; };
 		35D9F35328963C39007C88C6 /* TweetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D9F35228963C39007C88C6 /* TweetViewModel.swift */; };
 		35D9F35528978323007C88C6 /* PofileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D9F35428978323007C88C6 /* PofileController.swift */; };
 		35DDA400287E846D0015A242 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DDA3FF287E846C0015A242 /* AuthService.swift */; };
@@ -89,6 +91,8 @@
 		35D8B0B1286C02CC00D48736 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		35D8B0B3286C02D500D48736 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35D8B0B5286C074100D48736 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		35D9109528BF4B93002D0694 /* TweetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetController.swift; sourceTree = "<group>"; };
+		35D9109728BF5825002D0694 /* TweetHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetHeader.swift; sourceTree = "<group>"; };
 		35D9F35228963C39007C88C6 /* TweetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetViewModel.swift; sourceTree = "<group>"; };
 		35D9F35428978323007C88C6 /* PofileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PofileController.swift; sourceTree = "<group>"; };
 		35DDA3FF287E846C0015A242 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -168,6 +172,7 @@
 				351C63222859CCC400F8ECBC /* ConversationsViewController.swift */,
 				3535CFDF2886A9980087EEEA /* UploadTweetController.swift */,
 				35D9F35428978323007C88C6 /* PofileController.swift */,
+				35D9109528BF4B93002D0694 /* TweetController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -200,6 +205,7 @@
 				35B6B1DE2897CA84005DD98E /* PofileFilterView.swift */,
 				35B6B1E02897D82C005DD98E /* PofileFilterCell.swift */,
 				3589A7BB28B6129400D37DBB /* UserCell.swift */,
+				35D9109728BF5825002D0694 /* TweetHeader.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -547,6 +553,7 @@
 				351908E8285B3B9000E435FB /* Utilities.swift in Sources */,
 				351C631B2859C8FB00F8ECBC /* MainTabController.swift in Sources */,
 				351C63232859CCC400F8ECBC /* ConversationsViewController.swift in Sources */,
+				35D9109628BF4B93002D0694 /* TweetController.swift in Sources */,
 				3555A447288EA24300CB2EDD /* TweetCell.swift in Sources */,
 				351C632F285ADD2A00F8ECBC /* RegistrationViewController.swift in Sources */,
 				35DDA400287E846D0015A242 /* AuthService.swift in Sources */,
@@ -558,6 +565,7 @@
 				351C631D2859CC1700F8ECBC /* FeedViewController.swift in Sources */,
 				35D9F35328963C39007C88C6 /* TweetViewModel.swift in Sources */,
 				35B6B1DD2897A46D005DD98E /* PofileHeader.swift in Sources */,
+				35D9109828BF5825002D0694 /* TweetHeader.swift in Sources */,
 				35D9F35528978323007C88C6 /* PofileController.swift in Sources */,
 				351C63252859CCD200F8ECBC /* NotificationsViewController.swift in Sources */,
 				35FD8C122843B261000CB9E4 /* SceneDelegate.swift in Sources */,

@@ -12,6 +12,8 @@ protocol PofileHeaderDelegate: AnyObject{
     func handleDismissal()
     func handleEditPofileFollow(_ header: PofileHeader)
 }
+
+
 class PofileHeader: UICollectionReusableView {
         
     //MARK: - properties
@@ -50,6 +52,7 @@ class PofileHeader: UICollectionReusableView {
         imageView.layer.borderColor = UIColor.white.cgColor
         return imageView
     }()
+    
     lazy var editPofileButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Loading", for: .normal)
@@ -105,6 +108,7 @@ class PofileHeader: UICollectionReusableView {
         label.addGestureRecognizer(followTap)
         return label
     }()
+    
     //MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
