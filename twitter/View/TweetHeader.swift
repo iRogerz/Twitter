@@ -165,7 +165,7 @@ class TweetHeader: UICollectionReusableView {
         
         addSubview(statsView)
         statsView.snp.makeConstraints { make in
-            make.top.equalTo(dateLabel.snp.bottom).offset(20)
+            make.top.equalTo(dateLabel.snp.bottom).offset(12)
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(40)
         }

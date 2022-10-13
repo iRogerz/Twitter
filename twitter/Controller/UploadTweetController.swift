@@ -72,6 +72,7 @@ class UploadTweetController: UIViewController{
         //        let stack = UIStackView(arrangedSubviews: [pofileImageView, captionTextView])
         //        stack.axis = .horizontal
         //        stack.spacing = 12
+//        stack.alignment = .leading
         //        view.addSubview(stack)
         //        stack.snp.makeConstraints { make in
         //            make.top.equalTo(view.safeAreaLayoutGuide).offset(16)

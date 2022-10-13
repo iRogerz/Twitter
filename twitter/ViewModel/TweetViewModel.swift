@@ -67,4 +67,19 @@ struct TweetViewModel{
         attributedTitle.append(NSAttributedString(string: text, attributes: [.font: UIFont.systemFont(ofSize: 14),                                                                            .foregroundColor: UIColor.lightGray]))
         return attributedTitle
     }
+    
+    
+    //要再研究一下這是讓留言的cell大小自適應不會擋到下面的四個icon
+    func size(forWidth width: CGFloat) -> CGSize {
+        let measurementLabel = UILabel()
+        
+        measurementLabel.text = tweet.caption
+        measurementLabel.numberOfLines = 0
+        measurementLabel.lineBreakMode = .byWordWrapping
+        measurementLabel.translatesAutoresizingMaskIntoConstraints = false
+        measurementLabel.snp.makeConstraints { make in
+            make.width.equalTo(width)
+        }
+        return measurementLabel.systemLayoutSizeFitting(UIView.layoutFittingExpandedSize)
+    }
 }
