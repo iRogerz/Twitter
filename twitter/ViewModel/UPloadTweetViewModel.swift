@@ -27,7 +27,7 @@ struct UPloadTweetViewModel {
             placeholderText = "What's happening"
             shouldShowReplyLabel = false
         case .reply(let tweet):
-            actionbuttonTitle = "Tweet"
+            actionbuttonTitle = "Reply"
             placeholderText = "Tweet your Reply"
             shouldShowReplyLabel = true
             replyText = "Reply to \(tweet.user.username )"
