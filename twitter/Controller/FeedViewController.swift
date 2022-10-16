@@ -59,7 +59,6 @@ class FeedViewController: UICollectionViewController {
         imageTitle.setDimensions(width: 44, height: 44)
         navigationItem.titleView = imageTitle
         
-        
     }
     
     func configLeftBarButton(){
@@ -103,6 +102,15 @@ extension FeedViewController: UICollectionViewDelegateFlowLayout{
  
 //MARK: - TweetCellDelegate
 extension FeedViewController:TweetCellDelegate{
+    
+    func handleReplyTapped(_ cell: TweetCell) {
+        guard let tweet = cell.tweet else { return }
+        let controller = UploadTweetController(user: tweet.user, config: .reply(tweet))
+        let nav = UINavigationController(rootViewController: controller)
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: true, completion: nil)
+    }
+    
     func handlePofileImageTapped(_ cell: TweetCell) {
         guard let user = cell.tweet?.user else { return }
         let controller = PofileController(user: user)

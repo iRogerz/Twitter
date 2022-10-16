@@ -7,9 +7,12 @@
 
 import UIKit
 
+protocol TweetCellDelegate: AnyObject {
+    func handlePofileImageTapped(_ cell: TweetCell)
+    func handleReplyTapped(_ cell: TweetCell)
+}
+
 class TweetCell: UICollectionViewCell {
-    
-    
     //MARK: - properties
     var tweet: Tweet?{
         didSet { configure() }
@@ -121,7 +124,7 @@ class TweetCell: UICollectionViewCell {
         delegate?.handlePofileImageTapped(self)
     }
     @objc func handleCommentTapped(){
-        print("asdf")
+        delegate?.handleReplyTapped(self)
     }
     @objc func handleRetweetTapped(){
         print("asdf")
@@ -149,6 +152,4 @@ class TweetCell: UICollectionViewCell {
     }
 }
 
-protocol TweetCellDelegate: AnyObject {
-    func handlePofileImageTapped(_ cell: TweetCell)
-}
+

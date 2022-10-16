@@ -128,6 +128,7 @@ class TweetHeader: UICollectionReusableView {
         button.addTarget(self, action: #selector(handleShareTapped), for: .touchUpInside)
         return button
     }()
+    
     //MARK: - LifeCycle
     override init(frame: CGRect) {
         super.init(frame: frame)
