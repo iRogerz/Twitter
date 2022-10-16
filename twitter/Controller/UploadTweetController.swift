@@ -37,6 +37,14 @@ class UploadTweetController: UIViewController{
         return imageView
     }()
     
+    private lazy var replyLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.text = "roger setng"
+        label.textColor = .lightGray
+        return label
+    }()
+    
     private let captionTextView = CaptionTextView()
     
     //MARK: - LifeCycle
@@ -81,31 +89,47 @@ class UploadTweetController: UIViewController{
         view.backgroundColor = .white
         configureNavigationBar()
         
-        //        let stack = UIStackView(arrangedSubviews: [pofileImageView, captionTextView])
-        //        stack.axis = .horizontal
-        //        stack.spacing = 12
-//        stack.alignment = .leading
-        //        view.addSubview(stack)
-        //        stack.snp.makeConstraints { make in
-        //            make.top.equalTo(view.safeAreaLayoutGuide).offset(16)
-        //            make.leading.equalToSuperview().offset(16)
-        //            make.trailing.equalToSuperview().offset(-16)
-        //        }
-        view.addSubview(pofileImageView)
-        pofileImageView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(16)
-            make.leading.equalToSuperview().offset(16)
-        }
-        view.addSubview(captionTextView)
-        captionTextView.snp.makeConstraints { make in
-            make.top.equalTo(pofileImageView.snp.top)
-            make.leading.equalTo(pofileImageView.snp.trailing).offset(8)
-            make.trailing.equalToSuperview().offset(-16)
-            make.height.equalTo(300)
+        let imageCaptionStack = UIStackView(arrangedSubviews: [pofileImageView, captionTextView])
+        imageCaptionStack.axis = .horizontal
+        imageCaptionStack.spacing = 12
+        imageCaptionStack.alignment = .leading
+        
+        let stack = UIStackView(arrangedSubviews: [replyLabel, imageCaptionStack])
+        stack.axis = .vertical
+        stack.spacing = 12
+        
+        replyLabel.snp.makeConstraints { make in
+            make.width.equalToSuperview()
         }
         
-//        guard let url = URL(string: user.pofileImageURL) else { return }
+        view.addSubview(stack)
+        stack.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(16)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+        }
+        
+        
+        //        view.addSubview(pofileImageView)
+        //        pofileImageView.snp.makeConstraints { make in
+        //            make.top.equalTo(view.safeAreaLayoutGuide).offset(16)
+        //            make.leading.equalToSuperview().offset(16)
+        //        }
+        //        view.addSubview(captionTextView)
+        //        captionTextView.snp.makeConstraints { make in
+        //            make.top.equalTo(pofileImageView.snp.top)
+        //            make.leading.equalTo(pofileImageView.snp.trailing).offset(8)
+        //            make.trailing.equalToSuperview().offset(-16)
+        //            make.height.equalTo(300)
+        //        }
+        
+        //        guard let url = URL(string: user.pofileImageURL) else { return }
         pofileImageView.sd_setImage(with: user.pofileImageURL)
+        tweetButton.setTitle(viewModel.actionbuttonTitle, for: .normal)
+        captionTextView.placeHolderLabel.text = viewModel.placeholderText
+        replyLabel.isHidden = !viewModel.shouldShowReplyLabel
+        guard let reply = viewModel.replyText else { return }
+        replyLabel.text = reply
     }
     
     func configureNavigationBar(){
